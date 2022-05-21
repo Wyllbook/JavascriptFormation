@@ -24,13 +24,13 @@ let object = {
 console.log(typeof array); //typeof : savoir le type de la variable
 
 // ***********opérateurs**********
-//puissance : **
+//puissance => **
 // incrémentation
 let total = 2;
 let v = 4;
-// //total++ équivalent à total = total + 1
+//total++ équivalent à total = total + 1
 
-// // total += 5;  => total = total + 5
+// total += 5;  => total = total + 5
 total += ++v;
 // console.log(total);
 
@@ -75,7 +75,7 @@ function calc(x, y) {
   return x + y;
 }
 
-// fonction anonyme: fonction qui se joue toute seule => pas besoin de l'appeler
+// fonction anonyme : fonction qui se joue toute seule => pas besoin de l'appeler
 (function () {
   console.log("je me joue toute seule");
 })();
