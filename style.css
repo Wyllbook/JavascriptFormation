@@ -1,0 +1,40 @@
+/*  * => Sélectionne tout les éléments de la page au niveau du DOM */
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+
+}
+
+body{
+    text-align: center;
+    margin: 0;
+    color:white ;
+    min-height: 200vh; /*100vh => 100%de  de la taille 200vh => 200% de la taille de l'utilisateur */
+ }
+
+.box{
+    border: 6px solid white;
+    transition: 0.25s ease;
+    background: black;
+    padding: 10px;
+}
+
+p{
+    visibility: hidden;
+    width: 240px;
+    margin: 10px auto 0;
+    opacity: 0;
+    transition: 0.4s;
+     transform: translateX(-200px); /* postion de départ de la réponse */
+}
+.question-clicked{
+    background-color: royalblue;
+    border-radius: 30px;
+    border: 6px dashed palegreen;
+}
+.show-response{
+    visibility: visible;
+    opacity: 1;
+   transform: translateX(0);/* position de fin*/
+}
