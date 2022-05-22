@@ -1,4 +1,6 @@
 /*  * => Sélectionne tout les éléments de la page au niveau du DOM */
+/* En CSS #id > .class > baliseHTML */
+ /* !important => rend une propriété prioritaire */
 *{
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,6 +13,7 @@ body{
     margin: 0;
     color:white ;
     min-height: 200vh; /*100vh => 100%de  de la taille 200vh => 200% de la taille de l'utilisateur */
+    overflow-x: hidden;
  }
 
 .box{
@@ -18,6 +21,7 @@ body{
     transition: 0.25s ease;
     background: black;
     padding: 10px;
+   
 }
 
 p{
@@ -32,9 +36,35 @@ p{
     background-color: royalblue;
     border-radius: 30px;
     border: 6px dashed palegreen;
+    
 }
 .show-response{
     visibility: visible;
     opacity: 1;
    transform: translateX(0);/* position de fin*/
+}
+.mousemove{
+    height: 50px;
+    width: 50px;
+    border: 2px solid pink;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    transition: 0.1s ease;
+    z-index: -1;
+}
+
+nav{
+    background: rebeccapurple;
+    position:fixed;
+    width: 100%;
+    height: 50px;
+    top: -50px;
+    transition: 0.5s;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
 }
