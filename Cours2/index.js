@@ -90,7 +90,7 @@ document.addEventListener("keypress", (e) => {
   } else {
     keypressContainer.style.background = "green";
   }
-  ring(e.key);
+  if (e.key === "g") ring(e.key);
 }); // Evènement lorsqu'on appui sur une une touche et qu'on veut déclencher un évènement
 
 // *****************SCROLL EVENT**********
@@ -106,3 +106,46 @@ window.addEventListener("scroll", (e) => {
 });
 
 // ***************FORM EVENTS************
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector("select");
+let pseudo = "";
+let language;
+const form = document.querySelector("form");
+
+inputName.addEventListener("input", (e) => {
+  pseudo = e.target.value; //Stocker la valeur de l'input text dans une variable.
+});
+select.addEventListener("input", (e) => {
+  language = e.target.value; //stocker la valeur du select(langage favoris).
+});
+//A la base un formulaire change de page quand on le valide, pour éviter cela on va faire e.preventDefault.
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Permet de se prémunir du comportement par défaut du navigateur.
+  //On est pas besoin de déclarer une variable pour les checkboxs et les boutons(html).
+  if (cgv.checked) {
+    document.querySelector("form > div").innerHTML = `
+    <h3>Pseudo: ${pseudo}</h3>
+    <h4>Language préféré: ${language}</h4>
+    
+    `; //innerHTML permet d'injecter des balises HTML directement dans un code javascript.
+  } else {
+    alert("Veuillez accepter les CGV");
+  }
+});
+
+// *************LOAD EVENT************
+//Load event se déclenche quand toute la page a été chargée.
+window.addEventListener("load", () => {
+  console.log("Document chargé");
+});
+
+// ***************FOR EACH******************
+//Foreach permet de sélectionner plusieurs éléments
+const boxes = document.querySelectorAll(".box");
+console.log(boxes);
+
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    e.target.style.transform = "scale(0.9)"; //réduit toute les boites au clique.
+  });
+});
