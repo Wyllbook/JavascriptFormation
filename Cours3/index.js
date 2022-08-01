@@ -94,7 +94,7 @@ document.body.addEventListener("click", (e) => {
 //************Méthodes String
 let string2 = "Javascript est un langage orienté objet";
 // typeof
-// méthodes qui permet de savoir le type d'une ariable
+// méthodes qui permet de savoir le type d'une v ariable
 //eval =>méthode de calcul
 //parseInt=>méthode qui transforme une chaîne de caractère en number
 //isNaN=>is not a number
@@ -132,7 +132,8 @@ let array4 = ["Ruby", "Solidyty"];
 // console.log(newArray);
 let newArray = [...array3, ...array4]; //=>2eme méthode pour fusionner des tableaux
 console.log(newArray);
-console.log(array3.join("-")); //permet de séparer le tableau avec ce qui est mis en paramètre en cassant le tableau en chaine de caractère
+//.split va casser le tableau par ce qui est mis en paramètre
+console.log(array3.join("-")); //permet de transformer le tableau en chaine de caractère en séparant les différentes chaîne par ce qui est mis en paramètre.
 console.log(newArray.slice(2, 5));
 array3.forEach((languages) => console.log(languages));
 // console.log(array3.indexOf("Python"));
@@ -168,12 +169,12 @@ console.log(arrayNumber.sort((a, b) => b - a)); // => b-a =décroissant , a-b =c
 
 //MAP
 //permet de lister
-document.body.innerHTML = arrayNumber
-  .map((number) => `<li> ${number}</li>`)
-  .join(" ");
+// document.body.innerHTML = arrayNumber
+//   .map((number) => `<li> ${number}</li>`)
+//   .join(" ");
 
 //*****************Méthodes pour les objets
-document.body.innerHTML = data
+document.body.innerHTML += data
   .filter((user) => user.admin === false) //filtrer les utilisateurs qui ne sont pas modérateurs
   .filter((user) => user.pseudo.includes("i")) //includes permet de voir si dans un des pseudo il y a un "i"
   .sort((a, b) => b.age - a.age) // classer les utilisateurs par rapport à leur age
@@ -216,4 +217,50 @@ function dateParser(chaine) {
 // console.log(dateParser(iso));
 // console.log(dateParser(timestamp));
 
-//*********Destructuring */
+//******************Destructuring */
+let moreData = {
+  destVar: ["Element 1", "Element 2"],
+};
+const { destVar } = moreData; // équivaut à const destvar = moreData.destVar
+console.log(moreData.destVar[0]);
+
+let array5 = [70, 88, 90];
+let [x, y, z] = array3;
+console.log(x, y, z);
+
+const dateDestructuring = (chaine) => {
+  let newDate = chaine.split("T")[0];
+  let [y, m, d] = newDate.split("-");
+  return [d, m, y].join("/");
+};
+console.log(dateDestructuring(iso));
+
+// ********* Les Datasets
+//Les datasets sont des données que l'on peut mettre dans les balises
+const h3js = document.getElementById("javascript");
+
+const h3 = document.querySelectorAll("h3");
+
+h3.forEach((language) => {
+  //   console.log(language.dataset.lang);
+});
+
+// ****************Les Regex
+//Les Regex sont des expresssions régulières, tester des chaines de caracteres et voir si elles correspondent elle renvoie 0 si c'est true et -1 si false
+let mail = "wyllemblou2@gmail.com";
+// console.log(mail.search(/wyllem/));
+
+// console.log(mail.replace(/wyllemblou/, "wyllbook")); => remplace wyllemblou par wyllbook
+
+// console.log(mail.match(/Wyllemblou/i)); //ignoreCase
+// console.log(mail.match(/[wug]/)); //=> s'il y a au moins un w un u ou un g
+
+// // Tous les chiffres
+// console.log(mail.match(/\d/));
+
+// // Toute les lettres
+// console.log(mail.match(/[a-z]/));
+
+console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+let separator = 26526489123;
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")); //to String passer en chaine de caractere
