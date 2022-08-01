@@ -26,7 +26,7 @@ let data = [
     pseudo: "Wyllem",
     age: 22,
     techno: ["javaScript", "React", "NodeJs"],
-    admin: false,
+    admin: true,
   },
   {
     pseudo: "Ludovic",
@@ -35,7 +35,7 @@ let data = [
     admin: false,
   },
   {
-    pseudo: "Darryl",
+    pseudo: "Darril",
     age: 26,
     techno: ["CSS", "Python", "PHP"],
     admin: false,
@@ -70,3 +70,150 @@ for (const user of data) {
 for (i = 0; i < data.length; i++) {
   document.body.innerHTML += `<h2>${data[i].techno.join(" / ")}</h2>`;
 }
+
+//SWITCH
+document.body.addEventListener("click", (e) => {
+  switch (e.target.id) {
+    case "javascript":
+      document.body.style.background = "yellow";
+      break;
+
+    case "php":
+      document.body.style.background = "var(--blue)";
+      break;
+
+    case "python":
+      document.body.style.background = "orange";
+      break;
+
+    default:
+      break;
+  }
+});
+
+//************Méthodes String
+let string2 = "Javascript est un langage orienté objet";
+// typeof
+// méthodes qui permet de savoir le type d'une ariable
+//eval =>méthode de calcul
+//parseInt=>méthode qui transforme une chaîne de caractère en number
+//isNaN=>is not a number
+//length =>compte le nombre de caractère démarre à 0
+//indexOf=> dis à quel index le mot commence
+
+//slice => permet de découper des chaines de caractères de manière précise
+//let newString = string2.slice(2);
+// let newString = string2.slice(5, 17);
+//split => permet de séparer une chaine de caractère à partir de ce qu'on lui met en paramètre
+//toLowerCase => permet de mettre toute une chaîne de caractère en minuscule
+//toUpperCase=>mettre en majuscule
+//replace permet de remplacer une chaine de caractère par une autre
+// console.log(string2.replace("Javascript", "PHP"));
+
+//*******************Méthodes pours les Numbers */
+let number2 = 42.1234;
+console.log(number2.toFixed(1));
+console.log(parseFloat(number2));
+
+//Math
+console.log(Math.PI);
+console.log(Math.round(6.5)); //méthode pour arrondir
+console.log(Math.floor(4.9)); //arrondir au plus bas
+console.log(Math.ceil(4.9)); //arrondir au plus haut
+console.log(Math.pow(2, 7)); //puissance
+console.log(Math.sqrt(25)); //racine carrée
+console.log(Math.random()); //affiche un chiffre au hasard entre 0 et 1( multiplie par 50 pour avoir un chiffre entre 0 et 50)
+
+//**********************Méthodes pour les tableaux */
+let array3 = ["Javascript", "Php", "Python"];
+let array4 = ["Ruby", "Solidyty"];
+//concat permet de fusionner 2 tableaux
+// let newArray = array3.concat(array4);
+// console.log(newArray);
+let newArray = [...array3, ...array4]; //=>2eme méthode pour fusionner des tableaux
+console.log(newArray);
+console.log(array3.join("-")); //permet de séparer le tableau avec ce qui est mis en paramètre en cassant le tableau en chaine de caractère
+console.log(newArray.slice(2, 5));
+array3.forEach((languages) => console.log(languages));
+// console.log(array3.indexOf("Python"));
+console.log(array3.every((language) => language == "Php")); //=>permet de savoir si Php est écrit partout dans le tableau
+console.log(array3.some((language) => language == "Php")); //=>permet de savoir si Php est écrit au moins une fois
+//shift =>permet de retirer le premier élément du tableau
+// let shift = array3.shift();
+//pop => retire le dernier élément du tableau
+// console.log(array3.pop());
+
+const restArray = array3.splice(1, 2, "C++");
+console.log(array3); // =>va retirer l'élément positionnner à 1 jusqu'à l'élément 2 et va les remplacer par C++
+
+//IMPORTANT//
+let arrayNumber = [4, 74, 28, 12, 1];
+console.log(arrayNumber.reduce((x, y) => x + y)); // =>méthode pour faire une oppération sur tout les éléments d'un tableau
+
+//ajouter un élément à un tableau
+arrayNumber.push(22);
+console.log(arrayNumber);
+
+//A RETENIR//
+// FILTER, SORT, MAP
+
+//FILTER => permet de filtrer les éléments d'un tableau
+console.log(arrayNumber.filter((number) => number > 10)); // =>va afficher tout les chiffres sup à 10
+
+//SORT => permet de trier des éléments d'un tableau (par défaut il classe par rapport au premier index)
+// console.log(arrayNumber.sort());
+console.log(arrayNumber.sort((a, b) => b - a)); // => b-a =décroissant , a-b =croissant
+
+//ex de syntaxe :console.log(arrayNumber.filter((number) => number > 10).sort((a, b) => a - b));
+
+//MAP
+//permet de lister
+document.body.innerHTML = arrayNumber
+  .map((number) => `<li> ${number}</li>`)
+  .join(" ");
+
+//*****************Méthodes pour les objets
+document.body.innerHTML = data
+  .filter((user) => user.admin === false) //filtrer les utilisateurs qui ne sont pas modérateurs
+  .filter((user) => user.pseudo.includes("i")) //includes permet de voir si dans un des pseudo il y a un "i"
+  .sort((a, b) => b.age - a.age) // classer les utilisateurs par rapport à leur age
+  .map(
+    (user) =>
+      `
+<div class="user-card">
+<h2>${user.pseudo}</h2>
+<p> Age : ${user.age} ans</p>
+<p> Status : ${user.admin ? "modérateur" : "membre"}</p>
+</div>
+
+`
+  )
+  .join(" "); //lister les utilisateurs
+
+//   **********Les Dates
+//Date classique
+let date = new Date();
+// console.log(date);
+
+//Tmestamp=> nombre de seconde qui s'est écoulé entre le 1er janvier 1970 à aujourd'hui en milliseconde
+let timestamp = Date.parse(date);
+// console.log(timestamp);
+
+//IsoString
+let iso = date.toISOString();
+
+function dateParser(chaine) {
+  let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
+  return newDate;
+}
+// console.log(dateParser(date));
+// console.log(dateParser(iso));
+// console.log(dateParser(timestamp));
+
+//*********Destructuring */
