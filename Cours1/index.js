@@ -50,7 +50,7 @@ if (x === y) {
   console.log(`${x} et ${y} ne sont pas égaux`);
 }
 
-if (x != y) console.log("True !"); //syntaxe du if avec une seule condition
+if (x != y) console.log("yo !"); //syntaxe du if avec une seule condition
 
 //ternaire
 // : =>else
