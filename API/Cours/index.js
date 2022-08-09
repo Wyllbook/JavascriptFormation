@@ -137,3 +137,12 @@ localStorage.user = JSON.stringify(obj);
 sessionStorage.clear();
 
 //************COOKIES*********** */
+// cookie est envoyé d'un serveur vers un navigateur puis il est stocké par un navigateur
+// un cookie par défaut est stocké pendant la durée de la session
+// console.log(document.cookie);
+
+//Cookies
+document.cookie = "username=Wyllem"; //=>>ajouter un cooke
+
+//Bonne pratique
+document.cookie = "pseudo=FS;path=/;max-age=450000;secure;samesite";
