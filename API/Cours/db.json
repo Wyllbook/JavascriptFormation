@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "pseudo": "Wyllem",
+      "message": "Salut les gens",
+      "id": 1
+    },
+    {
+      "pseudo": "Wyllem",
+      "message": "Salut les gens",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "pseudo": "Oceane",
+      "message": "t'as déconné",
+      "id": 1
+    },
+    {
+      "pseudo": "Laurianne",
+      "age": 22,
+      "id": 2
+    }
+  ]
+}
