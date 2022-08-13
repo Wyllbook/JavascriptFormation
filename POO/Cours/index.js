@@ -129,3 +129,26 @@ Object.assign(Utilisateur.prototype, {
 console.log(user5.sayCity());
 
 // *********L'HÉRITAGE******
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  satSomething(text) {
+    console.log(this.name + " " + "dit" + " " + text);
+  }
+}
+
+class Dog extends Animal {
+  run() {
+    console.log("le chien cours");
+  }
+}
+
+class Cat extends Animal {
+  hunt() {
+    console.log("j'ai tué un oiseau");
+  }
+}
+const broly = new Dog("broly", 9);
+console.log(broly);
